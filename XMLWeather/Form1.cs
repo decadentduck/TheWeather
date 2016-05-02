@@ -295,9 +295,15 @@ namespace XMLWeather
                         }
                     }
                 }
-            } 
-        } 
-        
+            }
+
+            maxOutput.Text = days[0].maxTemp;
+            minOutput.Text = days[0].minTemp;
+            day1Clouds.Text = days[0].clouds;
+            imageBox.Image = days[0].picture;
+
+        }
+
         private void daySelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             Point xy = new Point(10, 10);
