@@ -40,8 +40,8 @@ namespace XMLWeather
             string currentFile = "http://api.openweathermap.org/data/2.5/weather?q=Stratford,CA&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";
             string forecastFile = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Stratford,CA&mode=xml&units=metric&cnt=7&appid=3f2e224b815c0ed45524322e145149f0";
 
-            //client.DownloadFile(currentFile, "WeatherData.xml");
-            //client.DownloadFile(forecastFile, "WeatherData7Day.xml");
+            client.DownloadFile(currentFile, "WeatherData.xml");
+            client.DownloadFile(forecastFile, "WeatherData7Day.xml");
         }
 
         private void ExtractCurrent()
@@ -56,7 +56,6 @@ namespace XMLWeather
             //check each child of the parent element
             foreach (XmlNode child in parent.ChildNodes)
             {
-                // TODO if the "city" element is found display the value of it's "name" attribute
                 if (child.Name == "city")
                 {
                     city = child.Attributes["name"].Value;
@@ -87,7 +86,8 @@ namespace XMLWeather
             cityOutput.Text = city;
             currentTempOut.Text = temperatureCurrent + "°c";
             windDescOut.Text = winds;
-            windSpeedOutput.Text = windSpeed + " m/s " + windDirection; 
+            windSpeedOutput.Text = windSpeed + " m/s " + windDirection;
+            dateOutput.Text = DateTime.Now.ToString("dd-MM-yy");
 
             day3 = DateTime.Now.AddDays(2).DayOfWeek.ToString();
             day4 = DateTime.Now.AddDays(3).DayOfWeek.ToString();
@@ -106,7 +106,7 @@ namespace XMLWeather
             //create a node variable to represent the parent element
             XmlNode parent;
             parent = doc.DocumentElement;
-            int day = 0;
+            //int day = 0;
             bool realDAy = false;
             //check each child of the parent element
             foreach (XmlNode child in parent.ChildNodes)
@@ -115,159 +115,44 @@ namespace XMLWeather
                 {
                     foreach (XmlNode grandChild in child.ChildNodes) // for each day
                     {
-
-                        switch (day) // this seems really unecessary but it works so it stays
+                        #region DATA
+                        if (grandChild.Name == "time")
                         {
-                            case 0:
-                                #region DATA 
-                                if (grandChild.Name == "time")
+                            foreach (XmlNode greatGrandChild in grandChild.ChildNodes) //for each thing in the day
+                            {
+                                if (greatGrandChild.Name == "symbol")
                                 {
-                                    foreach (XmlNode greatGrandChild in grandChild.ChildNodes) //for each thing in the day
-                                    {
-                                        if (greatGrandChild.Name == "precipitation")
-                                        {
-                                            try { rainType = greatGrandChild.Attributes["type"].Value; }
-                                            catch { rainType = ""; }
-                                        }
-
-                                        if (greatGrandChild.Name == "temperature")
-                                        {
-                                            minimum = greatGrandChild.Attributes["min"].Value;
-                                            maximum = greatGrandChild.Attributes["max"].Value;
-                                        }
-
-                                        if (greatGrandChild.Name == "clouds")
-                                        {
-                                            clouds = greatGrandChild.Attributes["value"].Value;
-                                            realDAy = true;
-                                        }
-                                    }
+                                    clouds = greatGrandChild.Attributes["name"].Value;
                                 }
-                                #endregion
-                                day++;
-                                break;
-                            case 1:
-                                #region DATA
-                                if (grandChild.Name == "time")
+
+                                if (greatGrandChild.Name == "temperature")
                                 {
-                                    foreach (XmlNode greatGrandChild in grandChild.ChildNodes) //for each thing in the day
-                                    {
-                                        if (greatGrandChild.Name == "precipitation")
-                                        {
-                                            try { rainType = greatGrandChild.Attributes["type"].Value; }
-                                            catch { rainType = ""; }
-                                        }
-
-                                        if (greatGrandChild.Name == "temperature")
-                                        {
-                                            minimum = greatGrandChild.Attributes["min"].Value;
-                                            maximum = greatGrandChild.Attributes["max"].Value;
-                                        }
-
-                                        if (greatGrandChild.Name == "clouds")
-                                        {
-                                            clouds = greatGrandChild.Attributes["value"].Value;
-                                            realDAy = true;
-                                        }
-                                    }
+                                    minimum = greatGrandChild.Attributes["min"].Value;
+                                    maximum = greatGrandChild.Attributes["max"].Value;
                                 }
-                                #endregion
-                                day++;
-                                break;
-                            case 2:
-                                #region DATA
-                                if (grandChild.Name == "time")
+
+                                if (greatGrandChild.Name == "clouds")
                                 {
-                                    foreach (XmlNode greatGrandChild in grandChild.ChildNodes) //for each thing in the day
-                                    {
-                                        if (greatGrandChild.Name == "precipitation")
-                                        {
-                                            try { rainType = greatGrandChild.Attributes["type"].Value; }
-                                            catch { rainType = ""; }
-                                        }
-
-                                        if (greatGrandChild.Name == "temperature")
-                                        {
-                                            minimum = greatGrandChild.Attributes["min"].Value;
-                                            maximum = greatGrandChild.Attributes["max"].Value;
-                                        }
-
-                                        if (greatGrandChild.Name == "clouds")
-                                        {
-                                            clouds = greatGrandChild.Attributes["value"].Value;
-                                            realDAy = true;
-                                        }
-                                    }
+                                    realDAy = true;
                                 }
-                                #endregion
-                                day++;
-                                break;
-                            case 3:
-                                #region DATA
-                                if (grandChild.Name == "time")
-                                {
-                                    foreach (XmlNode greatGrandChild in grandChild.ChildNodes) //for each thing in the day
-                                    {
-                                        if (greatGrandChild.Name == "precipitation")
-                                        {
-                                            try { rainType = greatGrandChild.Attributes["type"].Value; }
-                                            catch { rainType = ""; }
-                                        }
-
-                                        if (greatGrandChild.Name == "temperature")
-                                        {
-                                            minimum = greatGrandChild.Attributes["min"].Value;
-                                            maximum = greatGrandChild.Attributes["max"].Value;
-                                        }
-
-                                        if (greatGrandChild.Name == "clouds")
-                                        {
-                                            clouds = greatGrandChild.Attributes["value"].Value;
-                                            realDAy = true;
-                                        }
-                                    }
-                                }
-                                #endregion
-                                day++;
-                                break;
-                            case 4:
-                                #region DATA
-                                if (grandChild.Name == "time")
-                                {
-                                    foreach (XmlNode greatGrandChild in grandChild.ChildNodes) //for each thing in the day
-                                    {
-                                        if (greatGrandChild.Name == "precipitation")
-                                        {
-                                            try { rainType = greatGrandChild.Attributes["type"].Value; }
-                                            catch { rainType = ""; }
-                                        }
-
-                                        if (greatGrandChild.Name == "temperature")
-                                        {
-                                            minimum = greatGrandChild.Attributes["min"].Value;
-                                            maximum = greatGrandChild.Attributes["max"].Value;
-                                        }
-
-                                        if (greatGrandChild.Name == "clouds")
-                                        {
-                                            clouds = greatGrandChild.Attributes["value"].Value;
-                                            realDAy = true;
-                                        }
-                                    }
-                                }
-                                #endregion
-                                day++;
-                                break;
-                            default:
-                                break;
+                            }
                         }
+                        #endregion
 
                         #region set picture
-                        if (rainType == "light rain")
+                        if (clouds == "light rain")
                         {
                             picture = Properties.Resources.light_rain;
                         }
-                        else if (rainType == "heavy intensity rain")
+                        else if (clouds == "thunderstorm")
+                        {
+                            picture = Properties.Resources.thunderstorm;
+                        }
+                        else if (clouds == "heavy intensity rain")
+                        {
+                            picture = Properties.Resources.Heavy_Rain;
+                        }
+                        else if (clouds == "moderate rain")
                         {
                             picture = Properties.Resources.Heavy_Rain;
                         }
@@ -287,22 +172,38 @@ namespace XMLWeather
                         {
                             picture = Properties.Resources.sun_and_cloud;
                         }
-                        else
+                        else if (clouds == "clear sky")
                         {
                             picture = Properties.Resources.sun;
+                        }
+                        else if (clouds == "fog")
+                        {
+                            picture = Properties.Resources.fog;
+                        }
+                        else if (clouds == "light snow")
+                        {
+                            picture = Properties.Resources.light_snow;
+                        }
+                        else if (clouds == "heavy snow")
+                        {
+                            picture = Properties.Resources.heavy_snow;
+                        }
+                        else
+                        {
+                            picture = Properties.Resources.hail;
                         }
                         #endregion
 
                         if (realDAy == true)
                         {
-                            day d = new day(windDesc, windSpeed, minimum, maximum, clouds, picture);
+                            day d = new day(windSpeed, minimum, maximum, clouds, picture);
                             days.Add(d);
                             realDAy = false;
                         }
                     }
                 }
             }
-
+            
             maxOutput.Text = days[0].maxTemp;
             minOutput.Text = days[0].minTemp;
             day1Clouds.Text = days[0].clouds;
@@ -320,7 +221,7 @@ namespace XMLWeather
                 windDescOut.Visible = true;
                 windSpeedOutput.Visible = true;
                 xy = new Point(130, 10);
-
+                
                 maxOutput.Text = days[0].maxTemp;
                 minOutput.Text = days[0].minTemp;
                 day1Clouds.Text = days[0].clouds;

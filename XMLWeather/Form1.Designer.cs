@@ -38,6 +38,7 @@
             this.daySelect = new System.Windows.Forms.ComboBox();
             this.imageBox = new System.Windows.Forms.PictureBox();
             this.windSpeedOutput = new System.Windows.Forms.Label();
+            this.dateOutput = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,12 +140,22 @@
             this.windSpeedOutput.TabIndex = 11;
             this.windSpeedOutput.Text = "wind speed";
             // 
+            // dateOutput
+            // 
+            this.dateOutput.AutoSize = true;
+            this.dateOutput.Location = new System.Drawing.Point(79, 9);
+            this.dateOutput.Name = "dateOutput";
+            this.dateOutput.Size = new System.Drawing.Size(28, 13);
+            this.dateOutput.TabIndex = 12;
+            this.dateOutput.Text = "date";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(359, 357);
+            this.Controls.Add(this.dateOutput);
             this.Controls.Add(this.windSpeedOutput);
             this.Controls.Add(this.daySelect);
             this.Controls.Add(this.day1Clouds);
@@ -175,6 +186,7 @@
         private System.Windows.Forms.ComboBox daySelect;
         private System.Windows.Forms.PictureBox imageBox;
         private System.Windows.Forms.Label windSpeedOutput;
+        private System.Windows.Forms.Label dateOutput;
     }
 }
 
