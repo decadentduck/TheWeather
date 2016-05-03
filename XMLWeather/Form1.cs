@@ -14,7 +14,7 @@ namespace XMLWeather
     public partial class Form1 : Form
     {
         List<day> days = new List<day>();
-        string city, temperatureCurrent, winds, windSpeed, minimum, maximum, clouds, rainType, windDirection;
+        string city, temperatureCurrent, winds, windSpeed, minimum, maximum, clouds, windDirection;
         string day3, day4, day5;
         Image picture;
         
