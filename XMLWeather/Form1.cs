@@ -14,7 +14,7 @@ namespace XMLWeather
     public partial class Form1 : Form
     {
         List<day> days = new List<day>();
-        string city, temperatureCurrent, winds, windDesc, windSpeed, minimum, maximum, clouds, rainType;
+        string city, temperatureCurrent, winds, windSpeed, minimum, maximum, clouds, rainType, windDirection;
         string day3, day4, day5;
         Image picture;
         
@@ -74,6 +74,11 @@ namespace XMLWeather
                         if (grandChild.Name == "speed")
                         {
                             winds = grandChild.Attributes["name"].Value;
+                            windSpeed = grandChild.Attributes["value"].Value;
+                        }
+                        if (grandChild.Name == "direction")
+                        {
+                            windDirection = grandChild.Attributes["name"].Value;
                         }
                     }
                 }
@@ -82,6 +87,7 @@ namespace XMLWeather
             cityOutput.Text = city;
             currentTempOut.Text = temperatureCurrent + "°c";
             windDescOut.Text = winds;
+            windSpeedOutput.Text = windSpeed + " m/s " + windDirection; 
 
             day3 = DateTime.Now.AddDays(2).DayOfWeek.ToString();
             day4 = DateTime.Now.AddDays(3).DayOfWeek.ToString();
@@ -312,6 +318,7 @@ namespace XMLWeather
             {
                 currentTempOut.Visible = true;
                 windDescOut.Visible = true;
+                windSpeedOutput.Visible = true;
                 xy = new Point(130, 10);
 
                 maxOutput.Text = days[0].maxTemp;
@@ -323,6 +330,7 @@ namespace XMLWeather
             {
                 currentTempOut.Visible = false;
                 windDescOut.Visible = false;
+                windSpeedOutput.Visible = false;
                 xy = new Point(70, 10);
             }
 

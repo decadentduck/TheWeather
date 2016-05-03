@@ -37,6 +37,7 @@
             this.day1Clouds = new System.Windows.Forms.Label();
             this.daySelect = new System.Windows.Forms.ComboBox();
             this.imageBox = new System.Windows.Forms.PictureBox();
+            this.windSpeedOutput = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // 
             this.maxOutput.AutoSize = true;
             this.maxOutput.BackColor = System.Drawing.Color.Transparent;
-            this.maxOutput.Location = new System.Drawing.Point(137, 196);
+            this.maxOutput.Location = new System.Drawing.Point(137, 202);
             this.maxOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.maxOutput.Name = "maxOutput";
             this.maxOutput.Size = new System.Drawing.Size(26, 13);
@@ -87,7 +88,7 @@
             // 
             this.minOutput.AutoSize = true;
             this.minOutput.BackColor = System.Drawing.Color.Transparent;
-            this.minOutput.Location = new System.Drawing.Point(137, 219);
+            this.minOutput.Location = new System.Drawing.Point(137, 221);
             this.minOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.minOutput.Name = "minOutput";
             this.minOutput.Size = new System.Drawing.Size(23, 13);
@@ -98,7 +99,7 @@
             // 
             this.day1Clouds.AutoSize = true;
             this.day1Clouds.BackColor = System.Drawing.Color.Transparent;
-            this.day1Clouds.Location = new System.Drawing.Point(125, 244);
+            this.day1Clouds.Location = new System.Drawing.Point(137, 243);
             this.day1Clouds.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.day1Clouds.Name = "day1Clouds";
             this.day1Clouds.Size = new System.Drawing.Size(38, 13);
@@ -127,12 +128,24 @@
             this.imageBox.TabIndex = 10;
             this.imageBox.TabStop = false;
             // 
+            // windSpeedOutput
+            // 
+            this.windSpeedOutput.AutoSize = true;
+            this.windSpeedOutput.BackColor = System.Drawing.Color.Transparent;
+            this.windSpeedOutput.Location = new System.Drawing.Point(137, 265);
+            this.windSpeedOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.windSpeedOutput.Name = "windSpeedOutput";
+            this.windSpeedOutput.Size = new System.Drawing.Size(61, 13);
+            this.windSpeedOutput.TabIndex = 11;
+            this.windSpeedOutput.Text = "wind speed";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(359, 357);
+            this.Controls.Add(this.windSpeedOutput);
             this.Controls.Add(this.daySelect);
             this.Controls.Add(this.day1Clouds);
             this.Controls.Add(this.minOutput);
@@ -161,6 +174,7 @@
         private System.Windows.Forms.Label day1Clouds;
         private System.Windows.Forms.ComboBox daySelect;
         private System.Windows.Forms.PictureBox imageBox;
+        private System.Windows.Forms.Label windSpeedOutput;
     }
 }
 
