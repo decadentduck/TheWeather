@@ -45,9 +45,10 @@
             // cityOutput
             // 
             this.cityOutput.AutoSize = true;
-            this.cityOutput.Location = new System.Drawing.Point(11, 6);
+            this.cityOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityOutput.Location = new System.Drawing.Point(1, 7);
             this.cityOutput.Name = "cityOutput";
-            this.cityOutput.Size = new System.Drawing.Size(24, 13);
+            this.cityOutput.Size = new System.Drawing.Size(35, 20);
             this.cityOutput.TabIndex = 0;
             this.cityOutput.Text = "City";
             // 
@@ -79,10 +80,10 @@
             // 
             this.maxOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.maxOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxOutput.Location = new System.Drawing.Point(1, 202);
+            this.maxOutput.Location = new System.Drawing.Point(0, 202);
             this.maxOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.maxOutput.Name = "maxOutput";
-            this.maxOutput.Size = new System.Drawing.Size(357, 28);
+            this.maxOutput.Size = new System.Drawing.Size(359, 28);
             this.maxOutput.TabIndex = 3;
             this.maxOutput.Text = "max";
             this.maxOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -91,10 +92,10 @@
             // 
             this.minOutput.BackColor = System.Drawing.Color.Teal;
             this.minOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minOutput.Location = new System.Drawing.Point(1, 230);
+            this.minOutput.Location = new System.Drawing.Point(-5, 230);
             this.minOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.minOutput.Name = "minOutput";
-            this.minOutput.Size = new System.Drawing.Size(358, 23);
+            this.minOutput.Size = new System.Drawing.Size(364, 23);
             this.minOutput.TabIndex = 4;
             this.minOutput.Text = "min";
             this.minOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,13 +114,14 @@
             // 
             // daySelect
             // 
+            this.daySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.daySelect.FormattingEnabled = true;
             this.daySelect.Items.AddRange(new object[] {
             "Today",
             "Tomorrow"});
             this.daySelect.Location = new System.Drawing.Point(208, 6);
             this.daySelect.Name = "daySelect";
-            this.daySelect.Size = new System.Drawing.Size(121, 21);
+            this.daySelect.Size = new System.Drawing.Size(121, 26);
             this.daySelect.TabIndex = 9;
             this.daySelect.Text = "Today";
             this.daySelect.SelectedIndexChanged += new System.EventHandler(this.daySelect_SelectedIndexChanged);
@@ -148,9 +150,10 @@
             // dateOutput
             // 
             this.dateOutput.AutoSize = true;
-            this.dateOutput.Location = new System.Drawing.Point(107, 9);
+            this.dateOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOutput.Location = new System.Drawing.Point(123, 7);
             this.dateOutput.Name = "dateOutput";
-            this.dateOutput.Size = new System.Drawing.Size(28, 13);
+            this.dateOutput.Size = new System.Drawing.Size(41, 20);
             this.dateOutput.TabIndex = 12;
             this.dateOutput.Text = "date";
             // 

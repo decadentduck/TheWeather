@@ -17,7 +17,9 @@ namespace XMLWeather
         string city, temperatureCurrent, winds, windSpeed, minimum, maximum, clouds, windDirection;
         string day3, day4, day5;
         Image picture;
+
         int i = 0;
+        
 
         public Form1()
         {
@@ -41,8 +43,8 @@ namespace XMLWeather
             string currentFile = "http://api.openweathermap.org/data/2.5/weather?q=Stratford,CA&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";
             string forecastFile = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Stratford,CA&mode=xml&units=metric&cnt=7&appid=3f2e224b815c0ed45524322e145149f0";
 
-            client.DownloadFile(currentFile, "WeatherData.xml");
-            client.DownloadFile(forecastFile, "WeatherData7Day.xml");
+            //client.DownloadFile(currentFile, "WeatherData.xml");
+            //client.DownloadFile(forecastFile, "WeatherData7Day.xml");
         }
 
         private void ExtractCurrent()
@@ -64,7 +66,8 @@ namespace XMLWeather
 
                 if (child.Name == "temperature")
                 {
-                    temperatureCurrent = child.Attributes["value"].Value;
+                    temperatureCurrent = Convert.ToString(
+                        Math.Round(Convert.ToDouble(child.Attributes["value"].Value)));
                 }
 
                 if (child.Name == "wind")
@@ -74,7 +77,8 @@ namespace XMLWeather
                         if (grandChild.Name == "speed")
                         {
                             winds = grandChild.Attributes["name"].Value;
-                            windSpeed = grandChild.Attributes["value"].Value;
+                            windSpeed = Convert.ToString(
+                                Math.Round(Convert.ToDouble(grandChild.Attributes["value"].Value)*3.6));
                         }
                         if (grandChild.Name == "direction")
                         {
@@ -87,7 +91,7 @@ namespace XMLWeather
             cityOutput.Text = city;
             currentTempOut.Text = temperatureCurrent + "°c";
             windDescOut.Text = winds;
-            windSpeedOutput.Text = windSpeed + " m/s " + windDirection;
+            windSpeedOutput.Text = windSpeed + " km/h " + windDirection;
             dateOutput.Text = DateTime.Now.ToString("dd-MM-yy");
 
             day3 = DateTime.Now.AddDays(2).DayOfWeek.ToString();
@@ -203,8 +207,8 @@ namespace XMLWeather
                 }
             }
             
-            maxOutput.Text = days[i].maxTemp;
-            minOutput.Text = days[i].minTemp;
+            maxOutput.Text = days[i].maxTemp + "°c";
+            minOutput.Text = days[i].minTemp + "°c";
             day1Clouds.Text = days[i].clouds;
             imageBox.Image = days[i].picture;
 
@@ -241,8 +245,8 @@ namespace XMLWeather
 
             if (daySelect.Text == day5) { i = 4; }
 
-            maxOutput.Text = days[i].maxTemp;
-            minOutput.Text = days[i].minTemp;
+            maxOutput.Text = days[i].maxTemp + "°c";
+            minOutput.Text = days[i].minTemp + "°c";
             day1Clouds.Text = days[i].clouds;
             imageBox.Image = days[i].picture;
         }
