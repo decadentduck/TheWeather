@@ -45,7 +45,7 @@
             // cityOutput
             // 
             this.cityOutput.AutoSize = true;
-            this.cityOutput.Location = new System.Drawing.Point(12, 9);
+            this.cityOutput.Location = new System.Drawing.Point(11, 6);
             this.cityOutput.Name = "cityOutput";
             this.cityOutput.Size = new System.Drawing.Size(24, 13);
             this.cityOutput.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.currentTempOut.AutoSize = true;
             this.currentTempOut.BackColor = System.Drawing.Color.Transparent;
             this.currentTempOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentTempOut.Location = new System.Drawing.Point(-2, 70);
+            this.currentTempOut.Location = new System.Drawing.Point(4, 70);
             this.currentTempOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currentTempOut.Name = "currentTempOut";
             this.currentTempOut.Size = new System.Drawing.Size(131, 55);
@@ -65,47 +65,51 @@
             // 
             // windDescOut
             // 
-            this.windDescOut.AutoSize = true;
-            this.windDescOut.BackColor = System.Drawing.Color.Transparent;
-            this.windDescOut.Location = new System.Drawing.Point(37, 151);
+            this.windDescOut.BackColor = System.Drawing.Color.BurlyWood;
+            this.windDescOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windDescOut.Location = new System.Drawing.Point(-1, 277);
             this.windDescOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.windDescOut.Name = "windDescOut";
-            this.windDescOut.Size = new System.Drawing.Size(29, 13);
+            this.windDescOut.Size = new System.Drawing.Size(359, 27);
             this.windDescOut.TabIndex = 2;
             this.windDescOut.Text = "wind";
+            this.windDescOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // maxOutput
             // 
-            this.maxOutput.AutoSize = true;
-            this.maxOutput.BackColor = System.Drawing.Color.Transparent;
-            this.maxOutput.Location = new System.Drawing.Point(137, 202);
+            this.maxOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.maxOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxOutput.Location = new System.Drawing.Point(1, 202);
             this.maxOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.maxOutput.Name = "maxOutput";
-            this.maxOutput.Size = new System.Drawing.Size(26, 13);
+            this.maxOutput.Size = new System.Drawing.Size(357, 28);
             this.maxOutput.TabIndex = 3;
             this.maxOutput.Text = "max";
+            this.maxOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // minOutput
             // 
-            this.minOutput.AutoSize = true;
-            this.minOutput.BackColor = System.Drawing.Color.Transparent;
-            this.minOutput.Location = new System.Drawing.Point(137, 221);
+            this.minOutput.BackColor = System.Drawing.Color.Teal;
+            this.minOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minOutput.Location = new System.Drawing.Point(1, 230);
             this.minOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.minOutput.Name = "minOutput";
-            this.minOutput.Size = new System.Drawing.Size(23, 13);
+            this.minOutput.Size = new System.Drawing.Size(358, 23);
             this.minOutput.TabIndex = 4;
             this.minOutput.Text = "min";
+            this.minOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // day1Clouds
             // 
-            this.day1Clouds.AutoSize = true;
-            this.day1Clouds.BackColor = System.Drawing.Color.Transparent;
-            this.day1Clouds.Location = new System.Drawing.Point(137, 243);
+            this.day1Clouds.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.day1Clouds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.day1Clouds.Location = new System.Drawing.Point(0, 253);
             this.day1Clouds.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.day1Clouds.Name = "day1Clouds";
-            this.day1Clouds.Size = new System.Drawing.Size(38, 13);
+            this.day1Clouds.Size = new System.Drawing.Size(358, 25);
             this.day1Clouds.TabIndex = 7;
             this.day1Clouds.Text = "clouds";
+            this.day1Clouds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // daySelect
             // 
@@ -131,19 +135,20 @@
             // 
             // windSpeedOutput
             // 
-            this.windSpeedOutput.AutoSize = true;
-            this.windSpeedOutput.BackColor = System.Drawing.Color.Transparent;
-            this.windSpeedOutput.Location = new System.Drawing.Point(137, 265);
+            this.windSpeedOutput.BackColor = System.Drawing.Color.BurlyWood;
+            this.windSpeedOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windSpeedOutput.Location = new System.Drawing.Point(0, 304);
             this.windSpeedOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.windSpeedOutput.Name = "windSpeedOutput";
-            this.windSpeedOutput.Size = new System.Drawing.Size(61, 13);
+            this.windSpeedOutput.Size = new System.Drawing.Size(358, 20);
             this.windSpeedOutput.TabIndex = 11;
             this.windSpeedOutput.Text = "wind speed";
+            this.windSpeedOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dateOutput
             // 
             this.dateOutput.AutoSize = true;
-            this.dateOutput.Location = new System.Drawing.Point(79, 9);
+            this.dateOutput.Location = new System.Drawing.Point(107, 9);
             this.dateOutput.Name = "dateOutput";
             this.dateOutput.Size = new System.Drawing.Size(28, 13);
             this.dateOutput.TabIndex = 12;

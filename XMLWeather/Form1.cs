@@ -17,7 +17,8 @@ namespace XMLWeather
         string city, temperatureCurrent, winds, windSpeed, minimum, maximum, clouds, windDirection;
         string day3, day4, day5;
         Image picture;
-        
+        int i = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -127,12 +128,10 @@ namespace XMLWeather
 
                                 if (greatGrandChild.Name == "temperature")
                                 {
-                                    minimum = greatGrandChild.Attributes["min"].Value;
-                                    maximum = greatGrandChild.Attributes["max"].Value;
-                                }
-
-                                if (greatGrandChild.Name == "clouds")
-                                {
+                                    minimum = "low of " + Convert.ToString(
+                                        Math.Round(Convert.ToDouble(greatGrandChild.Attributes["min"].Value)));
+                                    maximum = "high of " + Convert.ToString(
+                                        Math.Round(Convert.ToDouble(greatGrandChild.Attributes["max"].Value)));
                                     realDAy = true;
                                 }
                             }
@@ -204,71 +203,48 @@ namespace XMLWeather
                 }
             }
             
-            maxOutput.Text = days[0].maxTemp;
-            minOutput.Text = days[0].minTemp;
-            day1Clouds.Text = days[0].clouds;
-            imageBox.Image = days[0].picture;
+            maxOutput.Text = days[i].maxTemp;
+            minOutput.Text = days[i].minTemp;
+            day1Clouds.Text = days[i].clouds;
+            imageBox.Image = days[i].picture;
 
         }
 
         private void daySelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             Point xy = new Point(10, 10);
-
+            
             if  (daySelect.Text == "Today")
             {
+                i = 0;
                 currentTempOut.Visible = true;
                 windDescOut.Visible = true;
                 windSpeedOutput.Visible = true;
                 xy = new Point(130, 10);
-                
-                maxOutput.Text = days[0].maxTemp;
-                minOutput.Text = days[0].minTemp;
-                day1Clouds.Text = days[0].clouds;
-                imageBox.Image = days[0].picture;
             }
             else
             {
                 currentTempOut.Visible = false;
                 windDescOut.Visible = false;
                 windSpeedOutput.Visible = false;
-                xy = new Point(70, 10);
+                xy = new Point(90, 10);
             }
 
             imageBox.Location = xy;
             Refresh();
 
-            if (daySelect.Text == "Tomorrow")
-            {
-                maxOutput.Text = days[1].maxTemp;
-                minOutput.Text = days[1].minTemp;
-                day1Clouds.Text = days[1].clouds;
-                imageBox.Image = days[1].picture;
-            }
+            if (daySelect.Text == "Tomorrow") { i = 1; }
 
-            if(daySelect.Text == day3)
-            {
-                maxOutput.Text = days[2].maxTemp;
-                minOutput.Text = days[2].minTemp;
-                day1Clouds.Text = days[2].clouds;
-                imageBox.Image = days[2].picture;
-            }
+            if (daySelect.Text == day3) { i = 2; }
 
-            if (daySelect.Text == day4)
-            {
-                maxOutput.Text = days[3].maxTemp;
-                minOutput.Text = days[3].minTemp;
-                day1Clouds.Text = days[3].clouds;
-                imageBox.Image = days[3].picture;
-            }
+            if (daySelect.Text == day4) { i = 3; }
 
-            if (daySelect.Text == day5)
-            {
-                maxOutput.Text = days[4].maxTemp;
-                minOutput.Text = days[4].minTemp;
-                day1Clouds.Text = days[4].clouds;
-                imageBox.Image = days[4].picture;
-            }
+            if (daySelect.Text == day5) { i = 4; }
+
+            maxOutput.Text = days[i].maxTemp;
+            minOutput.Text = days[i].minTemp;
+            day1Clouds.Text = days[i].clouds;
+            imageBox.Image = days[i].picture;
         }
     }
 }
